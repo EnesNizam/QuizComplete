@@ -1,45 +1,220 @@
 ﻿@page
 @model PrivacyModel
 @{
-  
+
 }
 <h1>@ViewData["Title"]</h1>
+
 <head>
-   
-    <link rel="stylesheet" href="~/css/Quiz.css" asp-append-version="true" />
-   
+
+  <link rel="stylesheet" href="~/css/Quiz.css" asp-append-version="true" />
+
 </head>
 <div class="container mt-2">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-           <h1 class="mb-3">
-                Sınav Hazırlama
-            </h1>
-            <form method="post">
-                <div class="mb-3">
-                    <select  id="list"  AutoPostBack="True"  name="authorId" asp-items="Model.GetLists.Select(a => 
-                                  new SelectListItem 
+  <div class="row justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h1 class="mb-3">
+        Sınav Hazırlama
+      </h1>
+      <form  method="post">
+        <div class="mb-3">
+          <select id="list"  AutoPostBack="True" name="authorId" asp-items="Model.GetLists.Select(a =>
+                                  new SelectListItem
                                   {
                                       Value = a.Explanation,
                                       Text =  a.Header
                                   }).ToList();"></select>
 
+        </div>
+         <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Başlık</span>
+                  <input id="input1" asp-for="Model.Header" type="text" class="form-control" aria-describedby="basic-addon1">
                 </div>
-                <div class="mb-3">
-                  <span id="span1"></span>
+        <div class="mb-3">
+          <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Açıklama</span>
+                  <input id="input2" asp-for="Model.Explanation" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
 
+        </div>
+        <div class="mb-3">
+           
+
+           
+         <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Soru 1</span>
+                  <input asp-for="Soru1.QuestionPost" type="text" class="form-control" aria-describedby="basic-addon1">
                 </div>
-                 <div class="mb-3">
-                  
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">A</span>
+                  <input asp-for="Soru1.OptionA" type="text" class="form-control" aria-describedby="basic-addon1">
                 </div>
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Sınav Oluştur</button>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">B</span>
+                  <input asp-for="Soru1.OptionB" type="text" class="form-control" aria-describedby="basic-addon1">
                 </div>
-            </form>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">C</span>
+                  <input asp-for="Soru1.OptionC" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">D</span>
+                  <input asp-for="Soru1.OptionD" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Doğru Cevap</span>
+                   <select asp-for="Soru1.CorrectOption" asp-items=Model.Options  class="form-control"></select>
+                </div>
+          </div>
+          
+        </div>
+               <div class="mb-3">
+           
+
+           
+         <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Soru 2</span>
+                  <input asp-for="Soru2.QuestionPost" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">A</span>
+                  <input asp-for="Soru2.OptionA" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">B</span>
+                  <input asp-for="Soru2.OptionB" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">C</span>
+                  <input asp-for="Soru2.OptionC" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">D</span>
+                  <input asp-for="Soru2.OptionD" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+          
+            <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Doğru Cevap</span>
+                    <select asp-for="Soru2.CorrectOption" asp-items=Model.Options  class="form-control"></select>
+                </div>
+          </div>
+          
+        </div>
+               <div class="mb-3">
+           
+
+           
+         <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Soru 3</span>
+                  <input asp-for="Soru3.QuestionPost" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">A</span>
+                  <input asp-for="Soru3.OptionA" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">B</span>
+                  <input asp-for="Soru3.OptionB" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">C</span>
+                  <input asp-for="Soru3.OptionC" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">D</span>
+                  <input asp-for="Soru3.OptionD" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Doğru Cevap</span>
+                   <select asp-for="Soru3.CorrectOption" asp-items=Model.Options  class="form-control"></select>
+                </div>
+          </div>
+          
+        </div>
+              <div class="mb-3">
+           
+
+           
+         <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Soru 4</span>
+                  <input asp-for="Soru4.QuestionPost" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+          <div class="container">
+            <div class="row row-cols-2">
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">A</span>
+                  <input asp-for="Soru4.OptionA" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">B</span>
+                  <input asp-for="Soru4.OptionB" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">C</span>
+                  <input asp-for="Soru4.OptionC" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">D</span>
+                  <input asp-for="Soru4.OptionD" type="text" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Doğru Cevap</span>
+                   <select asp-for="Soru4.CorrectOption" asp-items=Model.Options  class="form-control"></select>
+                </div>
+          </div>
+          
         </div>
 
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Sınav Oluştur</button>
+        </div>
+      </form>
     </div>
-    
+
+  </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js">
@@ -47,15 +222,16 @@
 </script>
 
 <script>
-    $(document).ready(function(){
-        $("#list").change(function(){
+  $(document).ready(function () {
+    $("#list").change(function () {
 
-            var a = $("#list  Option:Selected")[0].value;
-            console.log(a);
-            $("#span1").text(a);
-        })
+      var a = $("#list  Option:Selected")[0].value;
+      var b =$("#list  Option:Selected")[0].text;
+      console.log(a);
+         console.log(b);
+      $("#input2").val(a);
+      $("#input1").val(b);
     })
+  })
 
 </script>
-
-

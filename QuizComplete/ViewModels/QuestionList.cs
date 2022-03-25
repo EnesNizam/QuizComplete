@@ -13,7 +13,7 @@ namespace QuizComplete.ViewModels
         [Required]
         public string Explanation { get; set; }
 
-        public List<Question> questions { get; set; }
+       // public List<Question>? questions { get; set; }
 
     }
 }

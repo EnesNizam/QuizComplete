@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizComplete.Model;
 
@@ -10,9 +11,10 @@ using QuizComplete.Model;
 namespace QuizComplete.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220325055700_V.1.0.2")]
+    partial class V102
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
@@ -321,15 +323,10 @@ namespace QuizComplete.Migrations
             modelBuilder.Entity("QuizComplete.ViewModels.Question", b =>
                 {
                     b.HasOne("QuizComplete.ViewModels.QuestionList", "Questionlist")
-                        .WithMany("questions")
+                        .WithMany()
                         .HasForeignKey("QuestionListID");
 
                     b.Navigation("Questionlist");
-                });
-
-            modelBuilder.Entity("QuizComplete.ViewModels.QuestionList", b =>
-                {
-                    b.Navigation("questions");
                 });
 #pragma warning restore 612, 618
         }

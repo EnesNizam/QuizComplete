@@ -1,8 +1,61 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+  
 }
 <h1>@ViewData["Title"]</h1>
+<head>
+   
+    <link rel="stylesheet" href="~/css/Quiz.css" asp-append-version="true" />
+   
+</head>
+<div class="container mt-2">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+           <h1 class="mb-3">
+                Sınav Hazırlama
+            </h1>
+            <form method="post">
+                <div class="mb-3">
+                    <select  id="list"  AutoPostBack="True"  name="authorId" asp-items="Model.GetLists.Select(a => 
+                                  new SelectListItem 
+                                  {
+                                      Value = a.Explanation,
+                                      Text =  a.Header
+                                  }).ToList();"></select>
 
-<p>Use this page to detail your site's privacy policy.</p>
+                </div>
+                <div class="mb-3">
+                  <span id="span1"></span>
+
+                </div>
+                 <div class="mb-3">
+                  
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Sınav Oluştur</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#list").change(function(){
+
+            var a = $("#list  Option:Selected")[0].value;
+            console.log(a);
+            $("#span1").text(a);
+        })
+    })
+
+</script>
+
+

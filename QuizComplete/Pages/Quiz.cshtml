@@ -1,0 +1,65 @@
+﻿@page "{id:min(1)}"
+@model QuizComplete.Pages.QuizModel
+@{
+}
+<head>
+
+  <link rel="stylesheet" href="~/css/Quiz.css" asp-append-version="true" />
+
+</head>
+<div class="container mt-2">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h1 class="mb-3">
+        Sınav
+      </h1>
+      <div class="col-12 mt-5">
+        @Model.QuestionList.Header
+      </div>
+      <div class="col-12 mt-5">
+        @Model.QuestionList.Explanation
+      </div>
+      <div class="container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row mt-5">
+
+          @foreach (var item in Model.Questions)
+          {
+          <div class="col-6 mt-3">
+            <div class="col-12 mt-2">
+            Soru:  @item.QuestionPost
+            </div>
+            <div class="btn-group-vertical mt-2 w-100">
+          <input type="radio" class="btn-check" name="btnradio_@item.ID" id="btnradio1_@item.ID" autocomplete="off">
+  <label class="btn btn-outline-primary text-start" for="btnradio1_@item.ID">A) @item.OptionA</label>
+
+  <input type="radio" class="btn-check" name="btnradio_@item.ID" id="btnradio2_@item.ID" autocomplete="off">
+  <label class="btn btn-outline-primary text-start" for="btnradio2_@item.ID">B) @item.OptionB</label>
+
+  <input type="radio" class="btn-check" name="btnradio_@item.ID" id="btnradio3_@item.ID" autocomplete="off">
+  <label class="btn btn-outline-primary text-start" for="btnradio3_@item.ID">C) @item.OptionC</label>
+
+  <input type="radio" class="btn-check" name="btnradio_@item.ID" id="btnradio4_@item.ID" autocomplete="off">
+  <label class="btn btn-outline-primary text-start" for="btnradio4_@item.ID">D) @item.OptionD</label>
+
+
+            </div>
+
+       
+
+          </div>
+          }
+           <div class="d-grid gap-2 mt-4">
+  <button class="btn btn-primary m-10" type="button">Sınavı Tamamla</button>
+  
+</div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

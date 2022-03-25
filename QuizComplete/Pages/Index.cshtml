@@ -41,6 +41,11 @@
                  <a onclick="return confirm('Are you sure you want to delete this?')" asp-page="index" asp-page-handler="delete" asp-route-id="@quiz.ID">Delete</a>
               </span>
             </td>
+              <td>
+              <span class="table-edit">
+                 <a  asp-page="/Quiz"  asp-route-id="@quiz.ID">Sınav Başlat</a>
+              </span>
+            </td>
           </tr>
           }
         </tbody>
